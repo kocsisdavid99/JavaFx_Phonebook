@@ -11,6 +11,12 @@ public class Person {
     private final SimpleStringProperty email;
     
     
+    public Person() {
+        this.firstName = new SimpleStringProperty("");
+        this.lastName = new SimpleStringProperty("");
+        this.email = new SimpleStringProperty("");
+    }
+    
     public Person(String fName, String lName, String email) {
         this.firstName = new SimpleStringProperty(fName);
         this.lastName = new SimpleStringProperty(lName);
@@ -42,3 +48,4 @@ public class Person {
     }
     
 }
+    
