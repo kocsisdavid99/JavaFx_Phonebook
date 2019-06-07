@@ -28,11 +28,11 @@ public class ViewController implements Initializable {
     TextField inputLastname;
     
     @FXML
-    TextField inputFirstName;
+    TextField inputFirstname;
     
     @FXML
     TextField inputEmail;
-    
+     
     @FXML
     Button addNewContactButton;
     
@@ -47,9 +47,9 @@ public class ViewController implements Initializable {
     
     private final ObservableList<Person> data =
            FXCollections.observableArrayList(
-            new Person("Szabó", "Gyula", "dasd"),
-            new Person("Bourne", "Jason", "fasf"),
-            new Person("Scott", "Michael", "asfasf"));
+            new Person("Szabó", "Gyula", "szabogyula@gmail.com"),
+            new Person("Bourne", "Jason", "bournejason@gmail.com"),
+            new Person("Scott", "Michael", "scottmichael@gmail.com"));
 
     
     @Override
