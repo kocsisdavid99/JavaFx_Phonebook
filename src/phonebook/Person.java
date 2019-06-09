@@ -17,7 +17,7 @@ public class Person {
         this.email = new SimpleStringProperty("");
     }
     
-    public Person(String fName, String lName, String email) {
+    public Person(String lName, String fName, String email) {
         this.firstName = new SimpleStringProperty(fName);
         this.lastName = new SimpleStringProperty(lName);
         this.email = new SimpleStringProperty(email);
