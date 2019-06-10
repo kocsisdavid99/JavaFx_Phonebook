@@ -6,20 +6,20 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Person {
     
-    private final SimpleStringProperty firstName;
     private final SimpleStringProperty lastName;
+    private final SimpleStringProperty firstName;
     private final SimpleStringProperty email;
     
     
     public Person() {
-        this.firstName = new SimpleStringProperty("");
         this.lastName = new SimpleStringProperty("");
+        this.firstName = new SimpleStringProperty("");
         this.email = new SimpleStringProperty("");
     }
     
     public Person(String lName, String fName, String email) {
-        this.firstName = new SimpleStringProperty(fName);
         this.lastName = new SimpleStringProperty(lName);
+        this.firstName = new SimpleStringProperty(fName);
         this.email = new SimpleStringProperty(email);
     }
     
