@@ -15,8 +15,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,8 +29,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 public class ViewController implements Initializable {
 
@@ -61,6 +66,12 @@ public class ViewController implements Initializable {
     @FXML
     Button exportButton;
     
+    @FXML
+    SplitPane mainSplit;
+    
+    @FXML
+    AnchorPane anchor;
+    
     DB db = new DB();
     
     private final String MENU_CONTACTS = "Kontaktok";
@@ -80,6 +91,8 @@ public class ViewController implements Initializable {
             inputLastname.clear();
             inputFirstname.clear();
             inputEmail.clear();
+        }else{
+            alert("Adj meg egy valódi e-mail címet!");
         }
         
     }
@@ -91,6 +104,8 @@ public class ViewController implements Initializable {
         if (fileName != null && !fileName.equals("")) {
             PdfGeneration pdfCreator = new PdfGeneration();
             pdfCreator.pdfGeneration(fileName, data);
+        }else{
+            alert("Adj meg egy fájlnevet!");
         }
     }
 
@@ -197,6 +212,29 @@ public class ViewController implements Initializable {
             }
         });
 
+    }
+    
+    private void alert(String text) {
+        mainSplit.setDisable(true);
+        mainSplit.setOpacity(0.4);
+        
+        Label label = new Label(text);
+        Button alertButton = new Button("OK");
+        VBox vbox = new VBox(label, alertButton);
+        vbox.setAlignment(Pos.CENTER);
+        
+        alertButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                mainSplit.setDisable(false);
+                mainSplit.setOpacity(1);
+                vbox.setVisible(false);
+            }
+        });
+        
+        anchor.getChildren().add(vbox);
+        anchor.setTopAnchor(vbox, 300.0);
+        anchor.setLeftAnchor(vbox, 300.0);
     }
     
     
