@@ -106,6 +106,7 @@ public class ViewController implements Initializable {
         if (fileName != null && !fileName.equals("")) {
             PdfGeneration pdfCreator = new PdfGeneration();
             pdfCreator.pdfGeneration(fileName, data);
+            alert("Sikeres pdf generálás!");
         } else {
             alert("Adj meg egy fájlnevet!");
         }
