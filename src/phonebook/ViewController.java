@@ -61,22 +61,22 @@ public class ViewController implements Initializable {
     @FXML
     Button exportButton;
     
+    DB db = new DB();
+    
     private final String MENU_CONTACTS = "Kontaktok";
     private final String MENU_LIST = "Lista";
     private final String MENU_EXPORT = "Exportálás";
     private final String MENU_EXIT = "Kilépés";
     
-    private final ObservableList<Person> data
-            = FXCollections.observableArrayList(
-                    new Person("Szabó", "Gyula", "szabogyula@gmail.com"),
-                    new Person("Bourne", "Jason", "bournejason@gmail.com"),
-                    new Person("Scott", "Michael", "scottmichael@gmail.com"));
+    private final ObservableList<Person> data = FXCollections.observableArrayList();
     
     @FXML
     private void addContact(ActionEvent event) {
         String email = inputEmail.getText();
         if (email.length() > 3 && email.contains("@") && email.contains(".")) {
-            data.add(new Person(inputFirstname.getText(),inputLastname.getText(),inputEmail.getText()));
+            Person newPerson = new Person(inputFirstname.getText(),inputLastname.getText(),email);
+            data.add(newPerson);
+            db.addContact(newPerson);
             inputLastname.clear();
             inputFirstname.clear();
             inputEmail.clear();
@@ -104,8 +104,9 @@ public class ViewController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<Person, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<Person, String> t) {
-                        ((Person) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setLastName(t.getNewValue());
+                        Person actualPerson = (Person) t.getTableView().getItems().get(t.getTablePosition().getRow());
+                        actualPerson.setLastName(t.getNewValue());
+                        db.updateContact(actualPerson);
                     }
                 }
         );
@@ -119,8 +120,9 @@ public class ViewController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<Person, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<Person, String> t) {
-                        ((Person) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setFirstName(t.getNewValue());
+                        Person actualPerson = (Person) t.getTableView().getItems().get(t.getTablePosition().getRow());
+                        actualPerson.setFirstName(t.getNewValue());
+                        db.updateContact(actualPerson);
                     }
                 }
         );
@@ -134,13 +136,15 @@ public class ViewController implements Initializable {
                 new EventHandler<TableColumn.CellEditEvent<Person, String>>() {
                     @Override
                     public void handle(TableColumn.CellEditEvent<Person, String> t) {
-                        ((Person) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())).setEmail(t.getNewValue());
+                        Person actualPerson = (Person) t.getTableView().getItems().get(t.getTablePosition().getRow());
+                        actualPerson.setEmail(t.getNewValue());
+                        db.updateContact(actualPerson);
                     }
                 }
         );
 
         table.getColumns().addAll(lastNameCol, firstNameCol, emailCol);
+        data.addAll(db.getAllContacts());
         table.setItems(data);
     }
 
@@ -201,8 +205,6 @@ public class ViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         setTableData();
         setMenuData();
-        
-        
 
     }
 
