@@ -17,7 +17,7 @@ public class PhoneBook extends Application {
         Scene scene = new Scene(root);
         
         stage.setTitle("Telefonkönyv");
-        stage.setWidth(600);
+        stage.setWidth(800);
         stage.setHeight(680);
         stage.setScene(scene);
         stage.show();

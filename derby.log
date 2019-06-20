@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Thu Jun 20 17:39:57 CEST 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016b-758b-6215-0000065a8088 
+Thu Jun 20 20:22:55 CEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-016b-7620-973f-0000065a7ff8 
 on database directory C:\Users\kocsi\Projects\phonebook\sampleDB with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/kocsi/Projects/phonebook/dist/run1857639658/lib/derby.jar
+Loaded from file:/C:/Users/kocsi/Projects/phonebook/dist/run633064262/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_211-b12
 user.dir=C:\Users\kocsi\Projects\phonebook

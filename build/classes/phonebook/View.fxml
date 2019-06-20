@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="anchor" fx:id="anchor" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="phonebook.ViewController">
+<AnchorPane id="anchor" fx:id="anchor" prefHeight="650.0" prefWidth="800" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="phonebook.ViewController">
    <children>
       <Label layoutX="247.0" layoutY="14.0" text="Telefonkönyv">
          <font>
@@ -36,7 +36,7 @@
                      </children></Pane>
                   <Pane id="contactPane" fx:id="contactPane" layoutX="70.0" layoutY="102.0" prefHeight="598.0" prefWidth="428.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView id="table" fx:id="table" editable="true" layoutX="-1.0" layoutY="6.0" prefHeight="424.0" prefWidth="439.0">
+                        <TableView id="table" fx:id="table" editable="true" layoutX="-1.0" layoutY="6.0" prefHeight="424.0" prefWidth="570">
                           <placeholder>
                               <Label text="Nincs adat." />
                           </placeholder>
